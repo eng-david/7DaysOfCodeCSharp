@@ -17,9 +17,16 @@ Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémo
 # Day 1:
 - [X] Create C# code to execute the HTTP GET request.
 - [X] Catch the Json from the request.
-- [X] Print the Json on the terminal.
+- [X] Print the Json on the console.
 
-Using just the library `System.Net` was made a request to the PokéAPI e catched the list of Pockémons Json:
+Using just the library `System.Net` was made a request to the PokéAPI and catched the list of Pockémons Json:
 
 <p align='center'><img src='assets/print-dia1.png' alt='print dia 1'/></p>
 
+# Day 2:
+- [X] Parse the Json response and extract each Pokémon info.
+- [X] Show the organized information on the console.
+
+The Json was parsed with the `System.Text.Json.JsonSerializer` class and the class `Pokemon` was created to represent a Pokémon entity.
+
+<p align='center'><img src='assets/print-dia1.png' alt='print dia 1'/></p>

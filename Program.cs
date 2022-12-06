@@ -1,26 +1,34 @@
 ﻿using System.Diagnostics;
-using Newtonsoft.Json;
+using System.Text;
+using System.Text.Json;
 
 const string cachePath = "cache.json";
 
 // choose web or cache.
 string extrator = "cache";
 
-string json = String.Empty;
+StringBuilder json = new StringBuilder();
 if (extrator == "web")
 {
     HttpClient client = new HttpClient();
-    json = await client.GetStringAsync("https://pokeapi.co/api/v2/pokemon/");
-    File.WriteAllText(cachePath, json);
+    json.Append("[");
+    for (int i = 1; i <= 15; i++)
+    {
+        string item = await client.GetStringAsync($"https://pokeapi.co/api/v2/pokemon/{i}");
+        json.Append(item);
+        json.Append(",");
+    }
+    // remove last comma
+    json.Remove(json.Length - 1, 1);
+    json.Append("]");
+    File.WriteAllText(cachePath, json.ToString());
 }
 else if (extrator == "cache")
 {
-    json = File.ReadAllText(cachePath);
+    json.Append(File.ReadAllText(cachePath));
 }
-Console.WriteLine(json);
 
-var pockemomList = JsonConvert.DeserializeObject<List<Pockemon>>(json);
-
-foreach (Pockemon p in pockemomList){
-    System.Console.WriteLine(p);
+var pockemonList = JsonSerializer.Deserialize<List<Pockemon>>(json.ToString());
+foreach (Pockemon p in pockemonList){
+    Console.WriteLine(p);
 }
