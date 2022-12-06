@@ -29,4 +29,4 @@ Using just the library `System.Net` was made a request to the PokéAPI and catch
 
 The Json was parsed with the `System.Text.Json.JsonSerializer` class and the class `Pokemon` was created to represent a Pokémon entity.
 
-<p align='center'><img src='assets/print-dia1.png' alt='print dia 1'/></p>
+<p align='center'><img src='assets/print-dia2.png' alt='print dia 2'/></p>
