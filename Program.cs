@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 const string cachePath = "cache.json";
-string extrator = "cache";
+string extrator = "web";
 
 string json = String.Empty;
 if (extrator == "web")
@@ -14,7 +14,4 @@ else if (extrator == "cache")
 {
     json = File.ReadAllText(cachePath);
 }
-
-var pockemomList = JsonConvert.DeserializeObject<Pockemon>(json);
-
 Console.WriteLine(json);
