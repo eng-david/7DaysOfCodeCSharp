@@ -1,6 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System.Diagnostics;
+using Newtonsoft.Json;
 
 const string cachePath = "cache.json";
+
+// choose web or cache.
 string extrator = "cache";
 
 string json = String.Empty;
@@ -14,7 +17,10 @@ else if (extrator == "cache")
 {
     json = File.ReadAllText(cachePath);
 }
-
-var pockemomList = JsonConvert.DeserializeObject<Pockemon>(json);
-
 Console.WriteLine(json);
+
+var pockemomList = JsonConvert.DeserializeObject<List<Pockemon>>(json);
+
+foreach (Pockemon p in pockemomList){
+    System.Console.WriteLine(p);
+}
