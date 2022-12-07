@@ -15,3 +15,4 @@
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/obj/Debug/net7.0/ref/7DaysOfCodeCSharp.dll
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/bin/Debug/net7.0/Newtonsoft.Json.dll
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/obj/Debug/net7.0/7DaysOfCodeCSharp.csproj.CopyComplete
+/Users/davidjunior/Developer/7DaysOfCodeCSharp/bin/Debug/net7.0/RestSharp.dll
