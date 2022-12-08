@@ -1,6 +1,7 @@
+using System.Collections;
 using System.Text;
 
-public class Pokemon
+public class Pokemon: IEquatable<Pokemon>, IComparable
 {
     public string? name { get; set; }
     public int height { get; set; }
@@ -8,6 +9,18 @@ public class Pokemon
 
     public List<Ability>? abilities { get; set; }
 
+    public int CompareTo(object? obj)
+    {
+        Pokemon otherPokemon = obj as Pokemon;
+        return this.name.CompareTo(otherPokemon.name);
+    }
+
+    public bool Equals(Pokemon? other)
+    {
+        if (this.CompareTo(other) == 0) 
+        return true;
+        return false;
+    }
 
 
     public override string ToString()
@@ -26,4 +39,6 @@ public class Pokemon
 
         return sb.ToString();
     }
+
+
 }
