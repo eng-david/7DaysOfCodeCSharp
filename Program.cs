@@ -11,7 +11,7 @@ internal class Program
 
         System.Console.WriteLine(" --- TAMAGOTCHI --- ");
         
-        new App(repository);
+        new AppController(repository);
         
     }    
    

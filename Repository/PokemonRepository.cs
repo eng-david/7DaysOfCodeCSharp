@@ -7,7 +7,7 @@ public class PokemonRepository
     private const string myMascotsPath = "MyMascots.json";
     private const string cachePath = "cache.json";
 
-    public void save(Pokemon newPokemon)
+    public bool save(Pokemon newPokemon)
     {
         List<Pokemon> original = viewAll();
         if (!original.Contains(newPokemon))
@@ -15,10 +15,11 @@ public class PokemonRepository
         else
         {
             System.Console.WriteLine("Error! You already have this mascot!");
-            return;
+            return false;
         }
         string newList = JsonSerializer.Serialize(original);
         File.WriteAllText(myMascotsPath, newList);
+        return true;
     }
 
     public List<Pokemon> viewAll()
@@ -29,6 +30,9 @@ public class PokemonRepository
 
     public Pokemon getPokemon(string pokemonName)
     {
+        if (pokemonName == string.Empty)
+            throw new FileLoadException();
+
         // Check if it exists in cache
         string cache = File.ReadAllText(cachePath);
         List<Pokemon> cachePokemonList = JsonSerializer.Deserialize<List<Pokemon>>(cache).DistinctBy(p => p.name).ToList();

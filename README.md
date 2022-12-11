@@ -37,3 +37,6 @@ The Json was parsed with the `System.Text.Json.JsonSerializer` class and the cla
 Was created the class `App` where resides the application interactive menu, and the class `PokemonRepository` responsible for getting from cache/PokeAPI and saving the mascots.
 
 <p align='center'><img src='assets/print-dia3.png' alt='print dia 2'/></p>
+
+# Day 4:
+- [X] Organize the project source files in the MVC (Model View Controller) standard.
