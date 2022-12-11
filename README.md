@@ -30,3 +30,10 @@ Using just the library `System.Net` was made a request to the PokéAPI and catch
 The Json was parsed with the `System.Text.Json.JsonSerializer` class and the class `Pokemon` was created to represent a Pokémon entity.
 
 <p align='center'><img src='assets/print-dia2.png' alt='print dia 2'/></p>
+
+# Day 3:
+- [X] Create an interactive menu and allow user to view your current mascots, choose an mascot to adopt and exit the app.
+
+Was created the class `App` where resides the application interactive menu, and the class `PokemonRepository` responsible for getting from cache/PokeAPI and saving the mascots.
+
+<p align='center'><img src='assets/print-dia3.png' alt='print dia 2'/></p>
