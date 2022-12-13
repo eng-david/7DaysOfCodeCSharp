@@ -1,1 +1,1 @@
-[{"name":"bulbasaur","height":7,"weight":69,"abilities":[{"ability":{"name":"overgrow"}},{"ability":{"name":"chlorophyll"}}]}]
+[{"hungry":5,"sleepy":5,"happiness":5,"tiredness":5,"health":8,"name":"bulbasaur","height":7,"weight":69,"abilities":[{"ability":{"name":"overgrow"}},{"ability":{"name":"chlorophyll"}}]},{"hungry":5,"sleepy":5,"happiness":5,"tiredness":5,"health":8,"name":"voltorb","height":5,"weight":104,"abilities":[{"ability":{"name":"soundproof"}},{"ability":{"name":"static"}},{"ability":{"name":"aftermath"}}]}]

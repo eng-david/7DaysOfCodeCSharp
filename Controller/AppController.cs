@@ -1,13 +1,12 @@
 public class AppController
 {
 
-    PokemonRepository repository;
+    MascotRepository repository;
 
-    public AppController(PokemonRepository repository)
+    public AppController(MascotRepository repository)
     {
         this.repository = repository;
         MainMenuController();
-
     }
 
     private void MainMenuController()
@@ -53,7 +52,8 @@ public class AppController
                 switch (opt)
                 {
                     case "1":
-                        if (repository.save(pokemon))
+                        Mascot mascot = new Mascot(pokemon);
+                        if (repository.save(mascot))
                             System.Console.WriteLine("Mascot successfully adopted, the egg is hatching.");
                         return;
                     case "2":
@@ -73,7 +73,7 @@ public class AppController
 
     public void seeMascotsController()
     {
-        List<Pokemon> mascots = repository.viewAll();
+        List<Mascot> mascots = repository.viewAll();
         if (mascots.Count > 0)
         {
             System.Console.WriteLine($"\n --- YOUR MASCOTS --- ({mascots.Count})\n");

@@ -7,7 +7,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var repository = new PokemonRepository();
+        var repository = new MascotRepository();
 
         System.Console.WriteLine(" --- TAMAGOTCHI --- ");
         

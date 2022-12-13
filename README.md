@@ -19,7 +19,7 @@ Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémo
 - [X] Catch the Json from the request.
 - [X] Print the Json on the console.
 
-Using just the library `System.Net` was made a request to the PokéAPI and catched the list of Pockémons Json:
+Using just the library `System.Net` was made a request to the PokéAPI and cached the list of Pokémons Json:
 
 <p align='center'><img src='assets/print-dia1.png' alt='print dia 1'/></p>
 
@@ -40,3 +40,9 @@ Was created the class `App` where resides the application interactive menu, and 
 
 # Day 4:
 - [X] Organize the project source files in the MVC (Model View Controller) standard.
+
+# Day 5:
+- [X] Add common mascot attributes hungry, sleepy, happiness, tiredness, health.
+- [X] Add mascot actions eat, sleep, play.
+
+Was created the class `Mascot` that inherit from Pokemon and implements common mascots attributes and actions.

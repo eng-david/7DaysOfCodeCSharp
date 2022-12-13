@@ -2,36 +2,36 @@ using System.Text;
 using System.Text.Json;
 using RestSharp;
 
-public class PokemonRepository
+public class MascotRepository
 {
     private const string myMascotsPath = "MyMascots.json";
     private const string cachePath = "cache.json";
 
-    public bool save(Pokemon newPokemon)
+    public bool save(Mascot newMascot)
     {
-        List<Pokemon> original = viewAll();
-        if (!original.Contains(newPokemon))
-            original.Add(newPokemon);
+        List<Mascot> myMascots = viewAll();
+        if (!myMascots.Contains(newMascot))
+            myMascots.Add(newMascot);
         else
         {
             System.Console.WriteLine("Error! You already have this mascot!");
             return false;
         }
-        string newList = JsonSerializer.Serialize(original);
+        string newList = JsonSerializer.Serialize(myMascots);
         File.WriteAllText(myMascotsPath, newList);
         return true;
     }
 
-    public List<Pokemon> viewAll()
+    public List<Mascot> viewAll()
     {
         string mascots = File.ReadAllText(myMascotsPath);
-        return JsonSerializer.Deserialize<List<Pokemon>>(mascots).DistinctBy(p => p.name).ToList();
+        return JsonSerializer.Deserialize<List<Mascot>>(mascots).DistinctBy(p => p.name).ToList();
     }
 
     public Pokemon getPokemon(string pokemonName)
     {
         if (pokemonName == string.Empty)
-            throw new FileLoadException();
+            throw new ArgumentException();
 
         // Check if it exists in cache
         string cache = File.ReadAllText(cachePath);
