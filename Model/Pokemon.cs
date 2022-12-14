@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Text;
 
-public class Pokemon : IEquatable<Pokemon>, IComparable
+public class Pokemon : IComparable
 {
     public string name { get; set; }
     public int height { get; set; }
@@ -11,17 +11,31 @@ public class Pokemon : IEquatable<Pokemon>, IComparable
 
     public int CompareTo(object obj)
     {
-        Pokemon otherPokemon = obj as Pokemon;
-        return this.name.CompareTo(otherPokemon.name);
+        if (obj is string)
+        {
+            return this.name.CompareTo(obj);
+        }
+        
+        if (obj is Pokemon)
+        {
+            return this.name.CompareTo((obj as Pokemon).name);
+        }
+
+        return -1;
     }
 
-    public bool Equals(Pokemon other)
+    public override bool Equals(Object obj)
     {
-        if (this.CompareTo(other) == 0)
+        if (this.CompareTo(obj) == 0)
             return true;
+
         return false;
     }
 
+    public override int GetHashCode()
+    {
+        return this.name.GetHashCode();
+    }
 
     public override string ToString()
     {

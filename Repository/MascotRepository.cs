@@ -14,10 +14,10 @@ public class MascotRepository
             myMascots.Add(newMascot);
         else
         {
-            System.Console.WriteLine("Error! You already have this mascot!");
+            AppView.WriteError("You already have this mascot");
             return false;
         }
-        string newList = JsonSerializer.Serialize(myMascots);
+        string newList = JsonSerializer.Serialize(myMascots.Distinct());
         File.WriteAllText(myMascotsPath, newList);
         return true;
     }
@@ -25,7 +25,7 @@ public class MascotRepository
     public List<Mascot> viewAll()
     {
         string mascots = File.ReadAllText(myMascotsPath);
-        return JsonSerializer.Deserialize<List<Mascot>>(mascots).DistinctBy(p => p.name).ToList();
+        return JsonSerializer.Deserialize<List<Mascot>>(mascots);
     }
 
     public Pokemon getPokemon(string pokemonName)
@@ -35,22 +35,22 @@ public class MascotRepository
 
         // Check if it exists in cache
         string cache = File.ReadAllText(cachePath);
-        List<Pokemon> cachePokemonList = JsonSerializer.Deserialize<List<Pokemon>>(cache).DistinctBy(p => p.name).ToList();
+        List<Pokemon> cachePokemonList = JsonSerializer.Deserialize<List<Pokemon>>(cache).ToList();
         foreach (Pokemon p in cachePokemonList)
         {
-            if (p.name.Equals(pokemonName))
+            if (p.Equals(pokemonName))
                 return p;
         }
 
         // Get from PokeAPI
         var client = new RestClient();
         var request = new RestRequest($"https://pokeapi.co/api/v2/pokemon/{pokemonName}", Method.Get);
-        string item = client.Execute(request).Content;
-        
+        string json = client.Execute(request).Content;
+
         // Save new pokemon to cache
-        Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(item);
+        Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(json);
         cachePokemonList.Add(newPokemon);
-        string newCache = JsonSerializer.Serialize(cachePokemonList);
+        string newCache = JsonSerializer.Serialize(cachePokemonList.Distinct());
         File.WriteAllText(cachePath, newCache);
 
         return newPokemon;

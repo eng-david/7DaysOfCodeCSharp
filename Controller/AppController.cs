@@ -6,17 +6,23 @@ public class AppController
     public AppController(MascotRepository repository)
     {
         this.repository = repository;
+        AppView.WriteTitle("Tamagotchi");
         MainMenuController();
     }
 
     private void MainMenuController()
     {
-        var options = new List<string> { "Adopt a mascot", "See your mascots", "Exit" };
+        var options = new Dictionary<string, string>()
+        {
+            ["1"] = "Adopt a mascot",
+            ["2"] = "See your mascots",
+            ["q"] = "Exit"
+        };
+
         while (true)
         {
-            string opt = AppView.MainMenuView(options);
-
-            switch (opt)
+            AppView.WriteTitle("Main Menu");
+            switch (AppView.MenuView(options))
             {
                 case "1":
                     adoptMascotController();
@@ -24,49 +30,42 @@ public class AppController
                 case "2":
                     seeMascotsController();
                     break;
-                case "3":
+                case "q":
                     return;
-                default:
-                    System.Console.WriteLine("Invalid Option!\n");
-                    break;
             }
         }
     }
 
     public void adoptMascotController()
     {
-        System.Console.WriteLine("\n --- ADOPT A MASCOT --- \n");
+        AppView.WriteTitle("ADOPT A MASCOT");
 
-        System.Console.Write("Type the name of mascot for adoption: ");
-        string mascotName = Console.ReadLine();
+        string mascotName = AppView.ReadLine("Type the name of mascot for adoption: ");
         try
         {
             Pokemon pokemon = repository.getPokemon(mascotName);
-            System.Console.WriteLine(pokemon);
-            while (true)
+            AppView.WriteLine(pokemon);
+            AppView.WriteLine($"Are you sure you want to adopt {pokemon.name} ?");
+            var options = new Dictionary<string, string>()
             {
-                System.Console.WriteLine($"Are you sure you want to adopt {pokemon.name} ?");
-                System.Console.WriteLine("1 - Yes");
-                System.Console.WriteLine("2 - No");
-                string opt = Console.ReadLine();
-                switch (opt)
-                {
-                    case "1":
-                        Mascot mascot = new Mascot(pokemon);
-                        if (repository.save(mascot))
-                            System.Console.WriteLine("Mascot successfully adopted, the egg is hatching.");
-                        return;
-                    case "2":
-                        return;
-                    default:
-                        System.Console.WriteLine("Invalid Option!!");
-                        break;
-                }
+                ["1"] = "Yes",
+                ["2"] = "No"
+            };
+            switch (AppView.MenuView(options))
+            {
+                case "1":
+                    Mascot mascot = new Mascot(pokemon);
+                    if (repository.save(mascot))
+                        AppView.WriteLine("Mascot successfully adopted, the egg is hatching.");
+                    return;
+                case "2":
+                    return;
             }
+
         }
         catch (Exception)
         {
-            System.Console.WriteLine("Mascot not found!");
+            AppView.WriteError("Mascot not found");
         }
 
     }
@@ -76,11 +75,12 @@ public class AppController
         List<Mascot> mascots = repository.viewAll();
         if (mascots.Count > 0)
         {
-            System.Console.WriteLine($"\n --- YOUR MASCOTS --- ({mascots.Count})\n");
-            mascots.ForEach(p => System.Console.WriteLine(p));
-        } 
-        else {
-            System.Console.WriteLine("\n --- YOU DONT HAVE ANY MASCOTS ---\n");
+            AppView.WriteTitle($"YOUR MASCOTS ({mascots.Count})");
+            mascots.ForEach(m => AppView.WriteLine(m));
+        }
+        else
+        {
+            AppView.WriteError("YOU DONT HAVE ANY MASCOTS");
         }
 
     }
