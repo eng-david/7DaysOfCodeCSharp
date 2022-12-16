@@ -4,28 +4,57 @@ using RestSharp;
 
 public class MascotRepository
 {
-    private const string myMascotsPath = "MyMascots.json";
+    private string myMascotsPath;
     private const string cachePath = "cache.json";
 
-    public bool save(Mascot newMascot)
+    public MascotRepository(string fileName)
+    {
+        this.myMascotsPath = fileName;
+    }
+
+    public void save(Mascot newMascot)
     {
         List<Mascot> myMascots = viewAll();
         if (!myMascots.Contains(newMascot))
             myMascots.Add(newMascot);
         else
         {
-            AppView.WriteError("You already have this mascot");
-            return false;
+            throw new Exception("You already have this mascot");
         }
-        string newList = JsonSerializer.Serialize(myMascots.Distinct());
-        File.WriteAllText(myMascotsPath, newList);
-        return true;
+
+        saveList(myMascots);
+    }
+
+    public void update(Mascot mascot)
+    {
+        List<Mascot> myMascots = viewAll();
+
+        myMascots.Remove(mascot);
+        myMascots.Add(mascot);
+
+        saveList(myMascots);
+    }
+
+    public void remove(Mascot mascot)
+    {
+        List<Mascot> myMascots = viewAll();
+        myMascots.Remove(mascot);
+        saveList(myMascots);
+    }
+
+    private void saveList(List<Mascot> updatedList)
+    {
+        string myMascotsUpdated = JsonSerializer.Serialize(updatedList.Distinct(), new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(myMascotsPath, myMascotsUpdated);
     }
 
     public List<Mascot> viewAll()
     {
         string mascots = File.ReadAllText(myMascotsPath);
-        return JsonSerializer.Deserialize<List<Mascot>>(mascots);
+        List<Mascot> list = JsonSerializer.Deserialize<List<Mascot>>(mascots);
+        list.Sort();
+
+        return list;
     }
 
     public Pokemon getPokemon(string pokemonName)
@@ -42,18 +71,28 @@ public class MascotRepository
                 return p;
         }
 
-        // Get from PokeAPI
-        var client = new RestClient();
-        var request = new RestRequest($"https://pokeapi.co/api/v2/pokemon/{pokemonName}", Method.Get);
-        string json = client.Execute(request).Content;
+        try
+        {
+            // Get from PokeAPI
+            var client = new RestClient();
+            var request = new RestRequest($"https://pokeapi.co/api/v2/pokemon/{pokemonName}", Method.Get);
+            RestResponse response = client.Execute(request);
+            if (!response.IsSuccessful)
+                throw new Exception("Mascot not found");
+            string json = response.Content;
+            
+            // Save new pokemon to cache
+            Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(json);
+            cachePokemonList.Add(newPokemon);
+            string newCache = JsonSerializer.Serialize(cachePokemonList.Distinct(), new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(cachePath, newCache);
 
-        // Save new pokemon to cache
-        Pokemon newPokemon = JsonSerializer.Deserialize<Pokemon>(json);
-        cachePokemonList.Add(newPokemon);
-        string newCache = JsonSerializer.Serialize(cachePokemonList.Distinct());
-        File.WriteAllText(cachePath, newCache);
-
-        return newPokemon;
+            return newPokemon;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
 
     }
 }

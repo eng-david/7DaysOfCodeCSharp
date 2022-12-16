@@ -1,7 +1,7 @@
 public class AppController
 {
 
-    MascotRepository repository;
+    private MascotRepository repository;
 
     public AppController(MascotRepository repository)
     {
@@ -36,7 +36,7 @@ public class AppController
         }
     }
 
-    public void adoptMascotController()
+    private void adoptMascotController()
     {
         AppView.WriteTitle("ADOPT A MASCOT");
 
@@ -45,46 +45,88 @@ public class AppController
         {
             Pokemon pokemon = repository.getPokemon(mascotName);
             AppView.WriteLine(pokemon);
-            AppView.WriteLine($"Are you sure you want to adopt {pokemon.name} ?");
-            var options = new Dictionary<string, string>()
-            {
-                ["1"] = "Yes",
-                ["2"] = "No"
-            };
-            switch (AppView.MenuView(options))
-            {
-                case "1":
-                    Mascot mascot = new Mascot(pokemon);
-                    if (repository.save(mascot))
-                        AppView.WriteLine("Mascot successfully adopted, the egg is hatching.");
-                    return;
-                case "2":
-                    return;
-            }
 
+            if (AppView.YesNoMenu($"Are you sure you want to adopt {pokemon.name} ?"))
+            {
+                repository.save(new Mascot(pokemon));
+                AppView.WriteLine("Mascot successfully adopted, the egg is hatching.");
+            }
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            AppView.WriteError("Mascot not found");
+            AppView.WriteError(e.Message);
         }
 
     }
 
-    public void seeMascotsController()
+    private void seeMascotsController()
     {
         List<Mascot> mascots = repository.viewAll();
         if (mascots.Count > 0)
         {
             AppView.WriteTitle($"YOUR MASCOTS ({mascots.Count})");
-            mascots.ForEach(m => AppView.WriteLine(m));
+
+            var options = new Dictionary<string, string>();
+            for (int i = 0; i < mascots.Count; i++)
+            {
+                options.Add((i + 1).ToString(), $"Name: {mascots[i].name}\tHealth: {AppView.ProgressBar(mascots[i].health)}");
+            }
+            options.Add("q", "Exit");
+            string opt = AppView.MenuView(options);
+            if (opt == "q")
+                return;
+            ViewMascotDetails(mascots[int.Parse(opt) - 1]);
         }
         else
-        {
             AppView.WriteError("YOU DONT HAVE ANY MASCOTS");
+    }
+
+    private void ViewMascotDetails(Mascot mascot)
+    {
+
+        while (true)
+        {
+            AppView.WriteTitle($"Mascot: {mascot.name}");
+
+            AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health)}");
+            AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry)}");
+            AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy)}");
+            AppView.WriteLine($"Happiness:\t{AppView.ProgressBar(mascot.happiness)}");
+            AppView.WriteLine($"Tiredness:\t{AppView.ProgressBar(mascot.tiredness)}");
+
+            var options = new Dictionary<string, string>()
+            {
+                ["1"] = $"Feed {mascot.name}",
+                ["2"] = $"Play whit {mascot.name}",
+                ["3"] = $"Put {mascot.name} to sleep",
+                ["4"] = $"Donate {mascot.name}",
+                ["q"] = "Exit"
+            };
+
+            switch (AppView.MenuView(options))
+            {
+                case "1":
+                    mascot.eat();
+                    AppView.WriteLine($"{mascot.name} have eat some food.\n(=^ш^=)");
+                    break;
+                case "2":
+                    mascot.play();
+                    AppView.WriteLine($"{mascot.name} have fun!\n(=^ш^=)");
+                    break;
+                case "3":
+                    mascot.sleep();
+                    AppView.WriteLine($"{mascot.name} is sleeping.\n(=^ш^=)");
+                    break;
+                case "4":
+                    if (AppView.YesNoMenu($"Are you sure to donate {mascot.name}?"))
+                        repository.remove(mascot);
+                    return;
+                case "q":
+                    repository.update(mascot);
+                    return;
+            }
         }
 
     }
-
-
 
 }

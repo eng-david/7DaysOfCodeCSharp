@@ -7,8 +7,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var repository = new MascotRepository();
-        new AppController(repository);
+        var repository = new MascotRepository("MyMascots.json");
+        new AppController(repository);        
     }    
    
 }

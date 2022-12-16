@@ -1,4 +1,4 @@
-public class Mascot : Pokemon
+public class Mascot : Pokemon, IComparable<Mascot>
 {
     public int hungry { get; set; }
     public int sleepy { get; set; }
@@ -53,4 +53,8 @@ public class Mascot : Pokemon
         this.tiredness ++;
     }
 
+    public int CompareTo(Mascot other)
+    {
+        return this.name.CompareTo(other.name);
+    }
 }
