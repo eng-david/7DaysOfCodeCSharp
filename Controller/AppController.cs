@@ -87,12 +87,19 @@ public class AppController
         while (true)
         {
             AppView.WriteTitle($"Mascot: {mascot.name}");
+            AppView.WriteTitle(@"");
 
-            AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health)}");
-            AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry)}");
-            AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy)}");
-            AppView.WriteLine($"Happiness:\t{AppView.ProgressBar(mascot.happiness)}");
-            AppView.WriteLine($"Tiredness:\t{AppView.ProgressBar(mascot.tiredness)}");
+            string healthMessage = "";
+            string hungryMessage = "";
+            string sleepyMessage = "";
+            string happinessMessage = "";
+            string tirednessMessage = "";
+
+            AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health)}\t{healthMessage}");
+            AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry)}\t{hungryMessage}");
+            AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy)}\t{sleepyMessage}");
+            AppView.WriteLine($"Happiness:\t{AppView.ProgressBar(mascot.happiness)}\t{happinessMessage}");
+            AppView.WriteLine($"Tiredness:\t{AppView.ProgressBar(mascot.tiredness)}\t{tirednessMessage}");
 
             var options = new Dictionary<string, string>()
             {
