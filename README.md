@@ -46,3 +46,5 @@ Was created the class `App` where resides the application interactive menu, and 
 - [X] Add mascot actions eat, sleep, play.
 
 Was created the class `Mascot` that inherit from Pokemon and implements common mascots attributes and actions.
+
+<p align='center'><img src='assets/print-dia5.png' alt='print dia 2'/></p>

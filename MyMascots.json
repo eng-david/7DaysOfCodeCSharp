@@ -3,22 +3,22 @@
     "hungry": {
       "min": 0,
       "max": 10,
-      "value": 1
+      "value": 4
     },
     "sleepy": {
       "min": 0,
       "max": 10,
-      "value": 2
+      "value": 6
     },
     "happiness": {
       "min": 0,
       "max": 10,
-      "value": 10
+      "value": 6
     },
     "tiredness": {
       "min": 0,
       "max": 10,
-      "value": 9
+      "value": 5
     },
     "health": {
       "min": 0,
