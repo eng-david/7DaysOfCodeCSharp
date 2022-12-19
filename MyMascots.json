@@ -3,17 +3,17 @@
     "hungry": {
       "min": 0,
       "max": 10,
-      "value": 4
+      "value": 0
     },
     "sleepy": {
       "min": 0,
       "max": 10,
-      "value": 6
+      "value": 10
     },
     "happiness": {
       "min": 0,
       "max": 10,
-      "value": 6
+      "value": 10
     },
     "tiredness": {
       "min": 0,
@@ -23,7 +23,7 @@
     "health": {
       "min": 0,
       "max": 10,
-      "value": 10
+      "value": 0
     },
     "name": "voltorb",
     "height": 5,

@@ -83,6 +83,22 @@ public class AppController
 
     private void ViewMascotDetails(Mascot mascot)
     {
+        AppView.WriteTitle($"Mascot: {mascot.name}");
+        AppView.WriteLine("\t(=^.^=)\n");
+
+        if (mascot.health.value == 0)
+        {
+            AppView.WriteLine(@"
+  ##   
+######
+  ##
+  ##
+  ##
+  ##
+   ");
+   return;
+        }
+
         var options = new Dictionary<string, string>()
         {
             ["1"] = $"Feed {mascot.name}",
@@ -95,9 +111,6 @@ public class AppController
 
         while (true)
         {
-            AppView.WriteTitle($"Mascot: {mascot.name}");
-            AppView.WriteLine("\t(=^.^=)\n");
-
             AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health.value)}\t{mascot.GetHealthMessage()}");
             AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry.value)}\t{mascot.GetHungryMessage()}");
             AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy.value)}\t{mascot.GetSleepyMessage()}");
