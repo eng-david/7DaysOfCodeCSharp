@@ -1,81 +1,30 @@
 [
   {
-    "hungry": 1,
-    "sleepy": 9,
-    "happiness": 9,
-    "tiredness": 5,
-    "health": 8,
-    "name": "bulbasaur",
-    "height": 7,
-    "weight": 69,
-    "abilities": [
-      {
-        "ability": {
-          "name": "overgrow"
-        }
-      },
-      {
-        "ability": {
-          "name": "chlorophyll"
-        }
-      }
-    ]
-  },
-  {
-    "hungry": 5,
-    "sleepy": 5,
-    "happiness": 5,
-    "tiredness": 5,
-    "health": 8,
-    "name": "pidgeotto",
-    "height": 11,
-    "weight": 300,
-    "abilities": [
-      {
-        "ability": {
-          "name": "keen-eye"
-        }
-      },
-      {
-        "ability": {
-          "name": "tangled-feet"
-        }
-      },
-      {
-        "ability": {
-          "name": "big-pecks"
-        }
-      }
-    ]
-  },
-  {
-    "hungry": 5,
-    "sleepy": 5,
-    "happiness": 5,
-    "tiredness": 5,
-    "health": 8,
-    "name": "venusaur",
-    "height": 20,
-    "weight": 1000,
-    "abilities": [
-      {
-        "ability": {
-          "name": "overgrow"
-        }
-      },
-      {
-        "ability": {
-          "name": "chlorophyll"
-        }
-      }
-    ]
-  },
-  {
-    "hungry": 6,
-    "sleepy": 0,
-    "happiness": 6,
-    "tiredness": 4,
-    "health": 8,
+    "hungry": {
+      "min": 0,
+      "max": 10,
+      "value": 1
+    },
+    "sleepy": {
+      "min": 0,
+      "max": 10,
+      "value": 2
+    },
+    "happiness": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
+    "tiredness": {
+      "min": 0,
+      "max": 10,
+      "value": 9
+    },
+    "health": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
     "name": "voltorb",
     "height": 5,
     "weight": 104,
@@ -93,28 +42,6 @@
       {
         "ability": {
           "name": "aftermath"
-        }
-      }
-    ]
-  },
-  {
-    "hungry": 5,
-    "sleepy": 5,
-    "happiness": 5,
-    "tiredness": 5,
-    "health": 8,
-    "name": "charizard",
-    "height": 17,
-    "weight": 905,
-    "abilities": [
-      {
-        "ability": {
-          "name": "blaze"
-        }
-      },
-      {
-        "ability": {
-          "name": "solar-power"
         }
       }
     ]

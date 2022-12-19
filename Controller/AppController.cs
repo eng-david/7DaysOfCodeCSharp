@@ -7,10 +7,10 @@ public class AppController
     {
         this.repository = repository;
         AppView.WriteTitle("Tamagotchi");
-        MainMenuController();
+        MainMenu();
     }
 
-    private void MainMenuController()
+    private void MainMenu()
     {
         var options = new Dictionary<string, string>()
         {
@@ -25,10 +25,10 @@ public class AppController
             switch (AppView.MenuView(options))
             {
                 case "1":
-                    adoptMascotController();
+                    adoptMascot();
                     break;
                 case "2":
-                    seeMascotsController();
+                    seeMascots();
                     break;
                 case "q":
                     return;
@@ -36,7 +36,7 @@ public class AppController
         }
     }
 
-    private void adoptMascotController()
+    private void adoptMascot()
     {
         AppView.WriteTitle("ADOPT A MASCOT");
 
@@ -59,7 +59,7 @@ public class AppController
 
     }
 
-    private void seeMascotsController()
+    private void seeMascots()
     {
         List<Mascot> mascots = repository.viewAll();
         if (mascots.Count > 0)
@@ -69,7 +69,7 @@ public class AppController
             var options = new Dictionary<string, string>();
             for (int i = 0; i < mascots.Count; i++)
             {
-                options.Add((i + 1).ToString(), $"Name: {mascots[i].name}\tHealth: {AppView.ProgressBar(mascots[i].health)}");
+                options.Add((i + 1).ToString(), $"Name: {mascots[i].name}\tHealth: {AppView.ProgressBar(mascots[i].health.value)}");
             }
             options.Add("q", "Exit");
             string opt = AppView.MenuView(options);
@@ -83,50 +83,49 @@ public class AppController
 
     private void ViewMascotDetails(Mascot mascot)
     {
+        var options = new Dictionary<string, string>()
+        {
+            ["1"] = $"Feed {mascot.name}",
+            ["2"] = $"Play whit {mascot.name}",
+            ["3"] = $"Put {mascot.name} to sleep",
+            ["4"] = "Take Medicine",
+            ["5"] = $"Donate {mascot.name}",
+            ["q"] = "Exit"
+        };
 
         while (true)
         {
             AppView.WriteTitle($"Mascot: {mascot.name}");
-            AppView.WriteTitle(@"");
+            AppView.WriteLine("\t(=^.^=)\n");
 
-            string healthMessage = "";
-            string hungryMessage = "";
-            string sleepyMessage = "";
-            string happinessMessage = "";
-            string tirednessMessage = "";
-
-            AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health)}\t{healthMessage}");
-            AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry)}\t{hungryMessage}");
-            AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy)}\t{sleepyMessage}");
-            AppView.WriteLine($"Happiness:\t{AppView.ProgressBar(mascot.happiness)}\t{happinessMessage}");
-            AppView.WriteLine($"Tiredness:\t{AppView.ProgressBar(mascot.tiredness)}\t{tirednessMessage}");
-
-            var options = new Dictionary<string, string>()
-            {
-                ["1"] = $"Feed {mascot.name}",
-                ["2"] = $"Play whit {mascot.name}",
-                ["3"] = $"Put {mascot.name} to sleep",
-                ["4"] = $"Donate {mascot.name}",
-                ["q"] = "Exit"
-            };
+            AppView.WriteLine($"Health:\t\t{AppView.ProgressBar(mascot.health.value)}\t{mascot.GetHealthMessage()}");
+            AppView.WriteLine($"Hungry:\t\t{AppView.ProgressBar(mascot.hungry.value)}\t{mascot.GetHungryMessage()}");
+            AppView.WriteLine($"Sleepy:\t\t{AppView.ProgressBar(mascot.sleepy.value)}\t{mascot.GetSleepyMessage()}");
+            AppView.WriteLine($"Happiness:\t{AppView.ProgressBar(mascot.happiness.value)}\t{mascot.GetHappinessMessage()}");
+            AppView.WriteLine($"Tiredness:\t{AppView.ProgressBar(mascot.tiredness.value)}\t{mascot.GetTirednessMessage()}");
 
             switch (AppView.MenuView(options))
             {
                 case "1":
-                    mascot.eat();
-                    AppView.WriteLine($"{mascot.name} have eat some food.\n(=^ш^=)");
+                    mascot.Eat();
+                    AppView.WriteLine($"{mascot.name} have eat some food.\n");
                     break;
                 case "2":
-                    mascot.play();
-                    AppView.WriteLine($"{mascot.name} have fun!\n(=^ш^=)");
+                    mascot.Play();
+                    AppView.WriteLine($"{mascot.name} have fun!\n");
                     break;
                 case "3":
-                    mascot.sleep();
-                    AppView.WriteLine($"{mascot.name} is sleeping.\n(=^ш^=)");
+                    mascot.Sleep();
+                    AppView.WriteLine($"{mascot.name} is sleeping. (=^.^=) zzzz\n");
                     break;
                 case "4":
+                    mascot.TakeMedicine();
+                    AppView.WriteLine($"{mascot.name} have take some medicine.\n");
+                    break;
+                case "5":
                     if (AppView.YesNoMenu($"Are you sure to donate {mascot.name}?"))
-                        repository.remove(mascot);
+                        AppView.WriteLine("Bye Bye!!! (=^.^=)");
+                    repository.remove(mascot);
                     return;
                 case "q":
                     repository.update(mascot);

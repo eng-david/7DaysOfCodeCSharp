@@ -43,19 +43,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/davidjunior/.nuget/packages/": {}
+    "C:\\Users\\David Junior\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/davidjunior/Developer/7DaysOfCodeCSharp/7DaysOfCodeCSharp.csproj",
+      "projectUniqueName": "C:\\Users\\David Junior\\Developer\\7DaysOfCodeCSharp\\7DaysOfCodeCSharp.csproj",
       "projectName": "7DaysOfCodeCSharp",
-      "projectPath": "/Users/davidjunior/Developer/7DaysOfCodeCSharp/7DaysOfCodeCSharp.csproj",
-      "packagesPath": "/Users/davidjunior/.nuget/packages/",
-      "outputPath": "/Users/davidjunior/Developer/7DaysOfCodeCSharp/obj/",
+      "projectPath": "C:\\Users\\David Junior\\Developer\\7DaysOfCodeCSharp\\7DaysOfCodeCSharp.csproj",
+      "packagesPath": "C:\\Users\\David Junior\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\David Junior\\Developer\\7DaysOfCodeCSharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/davidjunior/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\David Junior\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -100,7 +100,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

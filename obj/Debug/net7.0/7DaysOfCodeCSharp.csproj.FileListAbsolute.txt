@@ -15,3 +15,20 @@
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/obj/Debug/net7.0/ref/7DaysOfCodeCSharp.dll
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/obj/Debug/net7.0/7DaysOfCodeCSharp.csproj.CopyComplete
 /Users/davidjunior/Developer/7DaysOfCodeCSharp/bin/Debug/net7.0/RestSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\7DaysOfCodeCSharp.exe
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\7DaysOfCodeCSharp.deps.json
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\7DaysOfCodeCSharp.runtimeconfig.json
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\7DaysOfCodeCSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\7DaysOfCodeCSharp.pdb
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\RestSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.csproj.AssemblyReference.cache
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.AssemblyInfoInputs.cache
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.AssemblyInfo.cs
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.csproj.CoreCompileInputs.cache
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.csproj.CopyComplete
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\refint\7DaysOfCodeCSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.pdb
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\7DaysOfCodeCSharp.genruntimeconfig.cache
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\obj\Debug\net7.0\ref\7DaysOfCodeCSharp.dll

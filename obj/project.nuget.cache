@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hUc89n45T/lKvDIPoV24qS3aQ4RzEgG5u+tM3qQFJMmo1eTi4axg59hhA2VgmB06QYZ1SEkcN4jUveouKfUIjQ==",
+  "dgSpecHash": "6+l++okMFkHYGRjyji7EZrRYkX6UQaU4ZD7beIrG2s+Tlc3wEmfWJst7ypMBnW1SckE4LYJ+JKiMPqDLnVQelA==",
   "success": true,
-  "projectFilePath": "/Users/davidjunior/Developer/7DaysOfCodeCSharp/7DaysOfCodeCSharp.csproj",
+  "projectFilePath": "C:\\Users\\David Junior\\Developer\\7DaysOfCodeCSharp\\7DaysOfCodeCSharp.csproj",
   "expectedPackageFiles": [
-    "/Users/davidjunior/.nuget/packages/restsharp/108.0.3/restsharp.108.0.3.nupkg.sha512"
+    "C:\\Users\\David Junior\\.nuget\\packages\\restsharp\\108.0.3\\restsharp.108.0.3.nupkg.sha512"
   ],
   "logs": []
 }
