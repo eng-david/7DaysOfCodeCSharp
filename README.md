@@ -21,7 +21,7 @@ Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémo
 
 Using just the library `System.Net` was made a request to the PokéAPI and cached the list of Pokémons Json:
 
-<p align='center'><img src='assets/print-dia1.png' alt='print dia 1'/></p>
+<p align='center'><img src='assets/print-dia1.png'/></p>
 
 # Day 2:
 - [X] Parse the Json response and extract each Pokémon info.
@@ -29,14 +29,14 @@ Using just the library `System.Net` was made a request to the PokéAPI and cache
 
 The Json was parsed with the `System.Text.Json.JsonSerializer` class and the class `Pokemon` was created to represent a Pokémon entity.
 
-<p align='center'><img src='assets/print-dia2.png' alt='print dia 2'/></p>
+<p align='center'><img src='assets/print-dia2.png'/></p>
 
 # Day 3:
 - [X] Create an interactive menu and allow user to view your current mascots, choose an mascot to adopt and exit the app.
 
 Was created the class `App` where resides the application interactive menu, and the class `PokemonRepository` responsible for getting from cache/PokeAPI and saving the mascots.
 
-<p align='center'><img src='assets/print-dia3.png' alt='print dia 2'/></p>
+<p align='center'><img src='assets/print-dia3.png'/></p>
 
 # Day 4:
 - [X] Organize the project source files in the MVC (Model View Controller) standard.
@@ -45,6 +45,10 @@ Was created the class `App` where resides the application interactive menu, and 
 - [X] Add common mascot attributes hungry, sleepy, happiness, tiredness, health.
 - [X] Add mascot actions eat, sleep, play.
 
+# Day 6:
+- [X] Create Mascot class.
+- [X] Map Pokemon class to Mascot class.
+
 Was created the class `Mascot` that inherit from Pokemon and implements common mascots attributes and actions.
 
-<p align='center'><img src='assets/print-dia5.png' alt='print dia 2'/></p>
+<p align='center'><img src='assets/print-dia6.png'/></p>
