@@ -78,7 +78,7 @@ public class AppController
             ViewMascotDetails(mascots[int.Parse(opt) - 1]);
         }
         else
-            AppView.WriteError("YOU DONT HAVE ANY MASCOTS");
+            AppView.WriteError("YOU DON`T HAVE ANY MASCOTS");
     }
 
     private void ViewMascotDetails(Mascot mascot)

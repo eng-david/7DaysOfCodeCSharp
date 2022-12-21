@@ -2,10 +2,10 @@
 
 <p align='center'><img src='assets/logo.svg' width=240 alt='logo'/></p>
 
-![Development Status Badge](https://img.shields.io/badge/Status-Under%20Development-orange)
+![Development Status Badge](https://img.shields.io/badge/Status-Concluded-green)
 
 ## Project Summary:
-Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémons and allow the user to choose a Pokémon for "adoption".
+Consume the PokéAPI (Pokémon API) utilizing just C# language, list the Pokémons and allows the user to choose a Pokémon for "adoption".
 
 
 ## Stack:
@@ -40,6 +40,11 @@ Was created the class `App` where resides the application interactive menu, and 
 
 # Day 4:
 - [X] Organize the project source files in the MVC (Model View Controller) standard.
+
+The application was divided into classes according to MVC: <br>
+Model: `Ability`, `Mascot`, `Pokemon` <br>
+View: `AppView` <br>
+Controller: `AppController` <br>
 
 # Day 5:
 - [X] Add common mascot attributes hungry, sleepy, happiness, tiredness, health.
