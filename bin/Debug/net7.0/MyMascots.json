@@ -1,0 +1,91 @@
+[
+  {
+    "hungry": {
+      "min": 0,
+      "max": 10,
+      "value": 0
+    },
+    "sleepy": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
+    "happiness": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
+    "tiredness": {
+      "min": 0,
+      "max": 10,
+      "value": 5
+    },
+    "health": {
+      "min": 0,
+      "max": 10,
+      "value": 0
+    },
+    "name": "voltorb",
+    "height": 5,
+    "weight": 104,
+    "abilities": [
+      {
+        "ability": {
+          "name": "soundproof"
+        }
+      },
+      {
+        "ability": {
+          "name": "static"
+        }
+      },
+      {
+        "ability": {
+          "name": "aftermath"
+        }
+      }
+    ]
+  },
+  {
+    "hungry": {
+      "min": 0,
+      "max": 10,
+      "value": 0
+    },
+    "sleepy": {
+      "min": 0,
+      "max": 10,
+      "value": 1
+    },
+    "happiness": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
+    "tiredness": {
+      "min": 0,
+      "max": 10,
+      "value": 6
+    },
+    "health": {
+      "min": 0,
+      "max": 10,
+      "value": 10
+    },
+    "name": "butterfree",
+    "height": 11,
+    "weight": 320,
+    "abilities": [
+      {
+        "ability": {
+          "name": "compound-eyes"
+        }
+      },
+      {
+        "ability": {
+          "name": "tinted-lens"
+        }
+      }
+    ]
+  }
+]

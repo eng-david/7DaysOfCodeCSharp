@@ -1,0 +1,6 @@
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\7DaysOfCodeCSharp.exe
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\7DaysOfCodeCSharp.dll
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\7DaysOfCodeCSharp.deps.json
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\7DaysOfCodeCSharp.runtimeconfig.json
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\7DaysOfCodeCSharp.pdb
+C:\Users\David Junior\Developer\7DaysOfCodeCSharp\bin\Debug\net7.0\publish\RestSharp.dll

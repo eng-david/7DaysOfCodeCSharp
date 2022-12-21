@@ -1,0 +1,24 @@
+[
+  {
+    "name": "raticate",
+    "height": 7,
+    "weight": 185,
+    "abilities": [
+      {
+        "ability": {
+          "name": "run-away"
+        }
+      },
+      {
+        "ability": {
+          "name": "guts"
+        }
+      },
+      {
+        "ability": {
+          "name": "hustle"
+        }
+      }
+    ]
+  }
+]

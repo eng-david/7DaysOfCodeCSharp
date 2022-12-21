@@ -52,3 +52,8 @@ Was created the class `App` where resides the application interactive menu, and 
 Was created the class `Mascot` that inherit from Pokemon and implements common mascots attributes and actions.
 
 <p align='center'><img src='assets/print-dia6.png'/></p>
+
+# Day 7:
+- [X] Build and generate the executable of the application.
+
+The application was published with the `dotnet publish` command.

@@ -84,7 +84,6 @@ public class AppController
     private void ViewMascotDetails(Mascot mascot)
     {
         AppView.WriteTitle($"Mascot: {mascot.name}");
-        AppView.WriteLine("\t(=^.^=)\n");
 
         if (mascot.health.value == 0)
         {
@@ -99,6 +98,7 @@ public class AppController
    return;
         }
 
+        AppView.WriteLine("\t(=^.^=)\n");
         var options = new Dictionary<string, string>()
         {
             ["1"] = $"Feed {mascot.name}",
